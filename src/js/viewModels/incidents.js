@@ -8,7 +8,7 @@
 /*
  * Your incidents ViewModel code goes here
  */
-define(['accUtils'],
+define(['accUtils','my-dropdown-with-chart/loader'],
  function(accUtils) {
     function IncidentsViewModel() {
       // Below are a set of the ViewModel methods invoked by the oj-module component.

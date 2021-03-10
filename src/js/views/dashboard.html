@@ -10,17 +10,42 @@
   <h3><span data-bind="text: name"></span></h3>
   <h3><span data-bind="text: name"></span></h3> -->
   <div>
+
+    <div id="detailTeamListComponent" class="demo-padding">
+      <oj-list-view id="detailTeamList" data="[[teamDataProvider]]">
+        <h5>Team List</h5>
+        <template slot="itemTemplate" data-oj-as="teamItem">
+          <!-- <p><oj-bind-text value="[[$current.data.name]]"></oj-bind-text></p> -->
+          <li>
+            <oj-list-item-layout>
+              <h6><oj-bind-text value="[[teamItem.data.name]]"></oj-bind-text></h6>
+              <!-- <oj-avatar slot="leading" src="[[$current.data.image]]"></oj-avatar> -->
+              <p><oj-bind-text value="[[$current.data.title]]"></oj-bind-text></p>
+            </oj-list-item-layout>
+          </li>
+        </template>
+      </oj-list-view>
+    </div>
+
     <h3><oj-label for="activitiesList">Activities</oj-label></h3>
     <oj-list-view id="activitiesList" style="font-size: 18px" data="[[activityDataProvider]]">
       <template slot="itemTemplate" data-oj-as="item">
-        <div class="oj-flex oj-sm-flex-items-initial">
-          <div class="oj-flex-item">
-            <span class="oj-ux-ico-soccer oj-ux-icon-size-6x" role="img"></span>
-          </div>
-          <div class="oj-flex-item oj-sm-padding-2x-horizontal"> 
+        <!-- <div class="oj-flex oj-sm-flex-items-initial">
+          <oj-avatar src="[[item.data.image]]"></oj-avatar>
+          <div class="oj-flex-item"> 
             <strong><oj-bind-text value="[[item.data.name]]"></oj-bind-text></strong>
           </div>
-        </div>
+          <div class="oj-flex-item">
+            <em><oj-bind-text value="[[item.data.short_desc]]"></oj-bind-text></em>
+          </div>
+        </div> -->
+        <li>
+          <oj-list-item-layout>
+            <h6><oj-bind-text value="[[item.data.name]]"></oj-bind-text></h6>
+            <oj-avatar slot="leading" src="[[item.data.image]]"></oj-avatar>
+            <p><oj-bind-text value="[[item.data.short_desc]]"></oj-bind-text></p>
+          </oj-list-item-layout>
+        </li>
       </template>
     </oj-list-view>
   </div>

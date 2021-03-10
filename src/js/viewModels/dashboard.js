@@ -15,7 +15,8 @@ define(['accUtils',
         'ojs/ojlabel',
         'ojs/ojselectsingle',
         'ojs/ojchart',
-        'ojs/ojlistview'
+        'ojs/ojlistview',
+        'ojs/ojlistitemlayout'
         ],
  function(accUtils, ko, $, ArrayDataProvider) {
     function DashboardViewModel() {
@@ -36,6 +37,7 @@ define(['accUtils',
 
       //Populate a Data Provider Observable in the ViewModel
       var url = "js/store_data.json"; //defines the link to local data file
+      //var url = "https://61a6276c-cf12-418a-88cb-a95d7a0c2d30.mock.pstmn.io/teamList"; //defines the link to local data file
 
       self.activityDataProvider = ko.observable(); //gets data for Activities list
 
@@ -43,12 +45,22 @@ define(['accUtils',
       $.getJSON(url).then(function(data){
         //Create  variable for Activities list and populate using key attribute fetch
         var activitiesArray = data;
+        console.log(activitiesArray);
         //self.activityDataProvider = new ArrayDataProvider(activitiesArray, { keyAttributes: 'id' });
         self.activityDataProvider(new ArrayDataProvider(activitiesArray, { keyAttributes: 'id' }));
         }
       );
       
-      //icons for the above Activities list 
+      //10 Mar 2021 populate Team List using the mock server API on Postman
+      var mock_url = "https://416da53f-7594-4160-8932-ed8bf1c1e3ce.mock.pstmn.io/teamDetails";
+      self.teamDataProvider = ko.observable();
+      //get Team objects from mock server API using jQuery method
+      $.getJSON(mock_url).then(function(data) {
+        //create variable for Team list and populate using key attribute fetch
+        var teamListArray = data;
+        console.log(teamListArray);
+        self.teamDataProvider(new ArrayDataProvider(teamListArray, { keyAttributes: 'id' }));
+        });
 
       //chart Type values array and ArrayDataProvider Observable
       var types = [
@@ -62,7 +74,7 @@ define(['accUtils',
       self.chartTypes = new ArrayDataProvider(types, { keyAttributes: 'value' });
 
       //chart selection observable and default value
-      self.val = ko.observable("bar");
+      self.val = ko.observable();
 
       //chart data Array and ArrayDataProvider observable
       var chartData = [

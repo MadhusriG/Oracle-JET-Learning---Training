@@ -3,7 +3,7 @@
       "id": 1,
       "name": "Baseball",
       "short_desc": "Equipment we carry for baseball players.",
-      "image": "css/images/product_images/baseball.jpg",
+      "image": "../css/images/baseball.png",
       "items": [
         {
           "id": 15,
@@ -55,7 +55,7 @@
       "id": 2,
       "name": "Bicycling",
       "short_desc": "Equipment we carry for biking enthusiasts.",
-      "image": "css/images/product_images/gpbike.jpg",
+      "image": "../css/images/bicycle.png",
       "items": [
         {
           "id": 10,
@@ -118,7 +118,7 @@
       "id": 3,
       "name": "Skiing",
       "short_desc": "Equipment we carry for skiing enthusiasts.",
-      "image": "css/images/product_images/aceboot.jpg",
+      "image": "../css/images/skiing.jpg",
       "items": [
         {
           "id": 6,
@@ -170,7 +170,7 @@
       "id": 4,
       "name": "Soccer",
       "short_desc": "Equipment we carry for soccer players.",
-      "image": "css/images/product_images/jrsoccerball.jpg",
+      "image": "../css/images/soccer.jpg",
       "items": [
         {
           "id": 1,
